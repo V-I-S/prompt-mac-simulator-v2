@@ -1,0 +1,36 @@
+experiment:
+  name:
+  dir: tests/165_tslots_10_agents_160_slots
+  header: 165 Bernoulli Trials - Each slot independently, randomly selected or not with arbitrary probability
+  description: |
+    Each agent (transmitter) runs a Bernoullis trial for each slot independently, with given probability occupying the slot or not.
+    Success is obtained only when each of nodes hits at least one slot when only it does broadcast.
+    Tolerance is varying
+    50 times smaller network than 142
+  model:
+    network: TdmaNetwork
+    node: tSlotsNode
+    executor: TdmaExecutor
+  size:
+    start: 10
+    stop: 10
+    step: 1
+  available-slots: 160
+  strategy:
+    evolution:
+      start: 1
+      stop: 70
+      step: 1
+    trials-per-strategy: 10000
+  failures-tolerance:
+    start: 0
+    stop: 0
+    step: 1
+    mode: LIMIT
+  valuation:
+    strategy: ValuationStrategy
+    generator: ValuationGenerator
+    max-instances-per-topology: 0
+    max-steps-per-instance: 0
+  sampling-frequency: 0
+  random-seed: 4289

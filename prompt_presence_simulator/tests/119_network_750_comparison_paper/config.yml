@@ -1,0 +1,32 @@
+experiment:
+  name:
+  dir: tests/119_network_750_comparison_paper
+  header: Big network comparison between tSlots & BT
+  description: |
+    tSlots behaves significantly more reliable when scaled up
+  model:
+    network: TdmaNetwork
+    node: BtNode
+    executor: TdmaExecutor
+  size:
+    start: 750
+    stop: 750
+    step: 0
+  available-slots: 10000
+  strategy:
+    evolution:  # in promiles
+      start: 5
+      stop: 60
+      step: 5
+    trials-per-strategy: 1000
+  failures-tolerance:
+    start: 0
+    stop: 0
+    step: 1
+  valuation:
+    strategy: ValuationStrategy
+    generator: ValuationGenerator
+    max-instances-per-topology: 0
+    max-steps-per-instance: 0
+  sampling-frequency: 0
+  random-seed: 4321

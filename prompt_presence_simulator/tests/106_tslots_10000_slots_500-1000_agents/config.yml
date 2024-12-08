@@ -1,0 +1,39 @@
+experiment:
+  name:
+  dir: tests/106_tslots_10000_slots_500-1000_agents
+  header: 106  tSlots - Each slot independently, randomly selected or not with arbitrary probability
+  description: |
+    Each agent (transmitter) runs a tSlots strategy, independently selecting constant t-size set of slots
+    to transmit in. Success is obtained only when each of nodes hits at least one slot when only it does broadcast.
+    Tolerance is varying
+    
+    ! Output files contains concatenation of this tests aexecution & test suite:
+    tests/114_tslots_10000_slots_500-1000_agents_remainings
+    We did not expect the tSlots to behave such well in high density networks, so we had to calculate the remaining data
+    still giving non-negligable results.
+  model:
+    network: TdmaNetwork
+    node: tSlotsNode
+    executor: TdmaExecutor
+  size:
+    start: 500
+    stop: 1000
+    step: 250
+  available-slots: 10000
+  strategy:
+    evolution:
+      start: 1
+      stop: 30
+      step: 1
+    trials-per-strategy: 5000
+  failures-tolerance:
+    start: 0
+    stop: 0
+    step: 1
+  valuation:
+    strategy: ValuationStrategy
+    generator: ValuationGenerator
+    max-instances-per-topology: 0
+    max-steps-per-instance: 0
+  sampling-frequency: 0
+  random-seed: 923

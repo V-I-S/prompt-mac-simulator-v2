@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/prompt_presence_simulator.iml" filepath="$PROJECT_DIR$/.idea/prompt_presence_simulator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../prompt_mac_calculator_v2/.idea/tdma_calc.iml" filepath="$PROJECT_DIR$/../prompt_mac_calculator_v2/.idea/tdma_calc.iml" />
+    </modules>
+  </component>
+</project>

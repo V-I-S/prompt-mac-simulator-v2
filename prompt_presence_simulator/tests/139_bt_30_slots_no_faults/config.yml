@@ -1,0 +1,35 @@
+experiment:
+  name:
+  dir: tests/139_bt_30_slots_no_faults
+  header: 139 Bernoulli Trials - Each slot independently, randomly selected or not with arbitrary probability
+  description: |
+    Each agent (transmitter) runs a Bernoullis trial for each slot independently, with given probability occupying the slot or not.
+    Success is obtained only when each of nodes hits at least one slot when only it does broadcast.
+    Tolerance is varying
+  model:
+    network: TdmaNetwork
+    node: BtNode
+    executor: TdmaExecutor
+  size:
+    start: 4
+    stop: 10
+    step: 2
+  available-slots: 30
+  strategy:
+    evolution:  # in part per 10.000 (tenth part of promile)
+      start: 0
+      stop: 1000
+      step: 50
+    trials-per-strategy: 10000
+  failures-tolerance:
+    start: 0
+    stop: 0
+    step: 1
+    mode: LIMIT
+  valuation:
+    strategy: ValuationStrategy
+    generator: ValuationGenerator
+    max-instances-per-topology: 0
+    max-steps-per-instance: 0
+  sampling-frequency: 0
+  random-seed: 342

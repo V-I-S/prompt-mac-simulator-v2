@@ -1,0 +1,35 @@
+experiment:
+  name:
+  dir: tests/156_tslots_64_slots_12_agents_faults
+  header: 156 Bernoulli Trials - Each slot independently, randomly selected or not with arbitrary probability
+  description: |
+    Each agent (transmitter) runs a tSlots strategy, independently selecting constant t-size set of slots
+    to transmit in. Success is obtained only when each of nodes hits at least one slot when only it does broadcast.
+    Tolerance is varying
+  model:
+    network: TdmaNetwork
+    node: tSlotsNode
+    executor: TdmaExecutor
+  size:
+    start: 12
+    stop: 12
+    step: 1
+  available-slots: 64
+  strategy:
+    evolution:
+      start: 0
+      stop: 64
+      step: 1
+    trials-per-strategy: 10000
+  failures-tolerance:
+    start: 0
+    stop: 6
+    step: 1
+    mode: LIMIT
+  valuation:
+    strategy: ValuationStrategy
+    generator: ValuationGenerator
+    max-instances-per-topology: 0
+    max-steps-per-instance: 0
+  sampling-frequency: 0
+  random-seed: 34221

@@ -1,0 +1,29 @@
+experiment:
+  name: 126_comparison_5_agents_100_slots
+  dir: tests/126_comparison_5_agents_100_slots
+  header: 126 comparison of optimal values per configuration
+  description: |
+    Bernoulli vs tSlots
+  model:
+    network: TdmaNetwork
+    node: TdmaNode
+    executor: TdmaExecutor
+  size:
+    start: 5
+    stop: 5
+    step: 1
+  available-slots: 100
+  strategy:
+    evolution:
+      start: 10
+      stop: 10
+      step: 1
+    trials-per-strategy: 10000
+  valuation:
+    strategy: ValuationStrategy
+    generator: ValuationGenerator
+    max-instances-per-topology: 0
+    max-steps-per-instance: 0
+  sampling-frequency: 0
+  random-seed: 64338
+  execution-cores: 4

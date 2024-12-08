@@ -1,0 +1,44 @@
+experiment:
+  name:
+  dir: tests/149_comparison_64_slots_0_faults
+  header: 149 Bernoulli vs tSlots compare, with faults
+  description: |
+    Comparison between two strategies
+  model:
+    network: TdmaNetwork
+    node: BtNode
+    executor: TdmaExecutor
+  size:
+    start: 16
+  failures-tolerance:
+    start: 0
+    mode: LIMIT
+  available-slots: 64
+  data:
+    1:
+      type: CALCULATION
+      path: result_calculation_data_BtNode_tolerance-0.tsv
+      label: BT strategy
+    2:
+      type: CALCULATION
+      path: result_calculation_data_tSlotsNode_tolerance-0.tsv
+      label: tSlots strategy
+    3:
+      type: EXPERIMENT
+      path: tests/137_bt_64_slots_no_faults/result_full_BtNode_agents-4-20.tsv
+      label: Simulation data
+      frequency: 2
+    4:
+      type: EXPERIMENT
+      path: tests/138_tslots_64_slots_no_faults/result_full_tSlotsNode_agents-4-16.tsv
+      label: Simulation data
+  output:
+    file: comparison_full_16_agents_0_faults.png
+    title: 'Probability of synchronization\n(64 slots, 16 agents, 0 accepted faults)'
+    ticks:
+      last: 64
+      step: 8
+    axis:
+      x: 'Expected number of transmissions per agent (BT: pn, t-Slots: t)'
+      y: 'Synchronization probability'
+  random-seed: 2113

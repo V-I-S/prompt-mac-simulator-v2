@@ -1,0 +1,30 @@
+experiment:
+  name: 000_test_example
+  dir: tests/000_test_example
+  header: 000 Test Experiment Configuration
+  description: |
+    Test instance for checking the program setup consistence.
+    Intended just to start, configure and fail, as uses some of abstract classes.
+    May be also used for testing different configurations as an integrity check.
+  model:
+    network: Network
+    node: Node
+    executor: Executor
+  size:
+    start: 15
+    stop: 15
+    step: 0
+  topology:
+    generator: ConstInboundSizeTopologyGenerator
+    evolution:
+      start: 3
+      stop: 15
+      step: 1
+    instances-per-evolution: 100
+  valuation:
+    strategy: ValuationStrategy
+    generator: ValuationGenerator
+    max-instances-per-topology: 23000
+    max-steps-per-instance: 0
+  sampling-frequency: 10000
+  random-seed: 4321
